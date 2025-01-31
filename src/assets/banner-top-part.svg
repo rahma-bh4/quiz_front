@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="488" height="300" viewBox="0 0 488 300">
+  <defs>
+    <clipPath id="clip-Custom_Size_1">
+      <rect width="488" height="300"/>
+    </clipPath>
+  </defs>
+  <g id="Custom_Size_1" data-name="Custom Size – 1" clip-path="url(#clip-Custom_Size_1)">
+    <path id="Path_43273" data-name="Path 43273" d="M0,0H488.276V300.031Z" fill="#001b50"/>
+    <line id="Line_826" data-name="Line 826" y1="238" transform="translate(261.5 -159)" fill="none" stroke="#cbcbcb" stroke-linecap="square" stroke-width="7"/>
+    <g id="Ellipse_431" data-name="Ellipse 431" transform="translate(235 71.5)" fill="none" stroke="#cbcbcb" stroke-width="1">
+      <ellipse cx="27" cy="12" rx="27" ry="12" stroke="none"/>
+      <ellipse cx="27" cy="12" rx="26.5" ry="11.5" fill="none"/>
+    </g>
+    <g id="Ellipse_432" data-name="Ellipse 432" transform="translate(212 61.5)" fill="none" stroke="#cbcbcb" stroke-width="1" opacity="0.5">
+      <ellipse cx="50" cy="22" rx="50" ry="22" stroke="none"/>
+      <ellipse cx="50" cy="22" rx="49.5" ry="21.5" fill="none"/>
+    </g>
+    <g id="Ellipse_433" data-name="Ellipse 433" transform="translate(182 48.5)" fill="none" stroke="#cbcbcb" stroke-width="1" opacity="0.2">
+      <ellipse cx="80" cy="35" rx="80" ry="35" stroke="none"/>
+      <ellipse cx="80" cy="35" rx="79.5" ry="34.5" fill="none"/>
+    </g>
+  </g>
+</svg>

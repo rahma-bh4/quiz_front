@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+
+
+<div class="prompt-wrapper " *ngIf="scenario"  >
+    <h1 class="titre">
+        <span >{{scenario?.titre}}</span>
+    </h1>
+    <p class="">{{scenario?.description}}</p>
+   
+</div>
+
+
+
+
+
+<div class="content-wrapper ng-trigger ng-trigger-slideIn " *ngIf="is_email">
+    <div class="content-frame  show-frame mx-auto">
+        <div class="header">
+            <div class="header-container">
+                <div class="circle red">D</div>
+                <div class="email-details">
+                    <div class="sender-details">
+                        <span class="sender-name" >{{scenario.sender}}</span>
+                        <span class="sender-email">&nbsp;&nbsp;{{scenario.sender_mail}}</span>
+
+                    </div>
+                    <div class="to-me-wrapper">
+                        <span class="to me">à moi</span>
+                    </div>
+                    <div></div>
+                </div>
+                <div class="time"></div>
+            </div>
+        </div>
+        <div class="email-container">
+            <h2>{{scenario.objet}}</h2>
+            <p>{{scenario.mail_body}}</p>
+            <div style="display: flex; justify-content: center;">
+            <img [src]="scenario.image" alt="" *ngIf="scenario.image!=null" class="image"></div>
+            <div class="email-footer">
+                <a class="btn btn-primary" href="{{scenario.url}}"  (click)="myFunction($event)">{{scenario.button}}</a>
+            </div>
+            <div class="email-footer"><p>{{scenario.footer}}</p></div>
+           
+        </div>
+
+    </div></div>
+    <div style="display: flex; justify-content: center;"*ngIf="is_image==true" >
+        <img [src]="scenario.image" alt="" class="image2">
+    </div>
+   
+   
+        <div class="prompt-wrapper2 " >
+        <h1 class="titre">
+            <span><span class="reponse"></span><span style="color:#34a853;"> {{ scenario.reponse ? 'Phishing' : 'Légitime' }}</span ></span>
+        </h1>
+        <p class="">{{scenario.explication}}</p>
+       
+    </div>
+
+
+<app-footer></app-footer>

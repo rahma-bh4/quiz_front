@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+
+
+<div class="prompt-wrapper " *ngIf="scenario && !hide"  >
+    <h1 class="titre">
+        <span >{{scenario?.titre}}</span>
+    </h1>
+    <p class="">{{scenario?.description}}</p>
+   
+</div>
+<div class="prompt-wrapper " *ngIf="feedbackMessage">
+    <h1 class="titre">
+        <span >{{feedbackMessage}}</span>
+    </h1>
+    <p class="">{{scenario.explication}}</p>
+    <div class="actions button-container ">
+        <button
+            class="custom-button" (click)="loadNextScenario()">suivant</button><!---->
+        <!----><!---->
+    </div>
+</div>
+
+
+
+
+<div class="content-wrapper ng-trigger ng-trigger-slideIn " *ngIf="scenario && is_email">
+    <div class="content-frame  show-frame mx-auto">
+        <div class="header">
+            <div class="header-container">
+                <div class="circle red">D</div>
+                <div class="email-details">
+                    <div class="sender-details">
+                        <span class="sender-name" >{{scenario.sender}}</span>
+                        <span class="sender-email">&nbsp;&nbsp;{{scenario.sender_mail}}</span>
+
+                    </div>
+                    <div class="to-me-wrapper">
+                        <span class="to me">à moi</span>
+                    </div>
+                    <div></div>
+                </div>
+                <div class="time"></div>
+            </div>
+        </div>
+        <div class="email-container">
+            <h2>{{scenario.objet}}</h2>
+            <p>{{scenario.mail_body}}</p>
+            <div style="display: flex; justify-content: center;">
+                <img [src]="'http://localhost:8000/'+scenario.image" alt="" *ngIf="scenario.image!=null" class="image"></div>
+            <div class="email-footer">
+                <a class="btn btn-primary" href="{{scenario.url}}"  (click)="myFunction($event)">{{scenario.button}}</a>
+            </div>
+            <div class="email-footer"><p>{{scenario.footer}}</p></div>
+           
+        </div>
+
+    </div></div>
+    <div style="display: flex; justify-content: center;" *ngIf="scenario && scenario.type === 'image'">
+    <img [src]="'http://localhost:8000/'+scenario.image" alt="" class="image2"></div><br><br>
+    <div class="actions button-container " *ngIf="scenario && !hide">
+        <button
+            class="custom-button" (click)="phishing_reponse()">phishing</button><!---->
+        <button
+            class="custom-button" (click)="legitime_reponse()">Légitime</button><!----><!---->
+    </div>
+ <div> 
+ </div>
+
+<app-footer></app-footer>

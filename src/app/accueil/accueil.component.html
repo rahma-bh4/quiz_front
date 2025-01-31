@@ -1,0 +1,62 @@
+<div class="header-container" >
+    
+    <app-navbar></app-navbar>
+    <section class="hero-banner result-banner">
+        <div class="bg-image">
+            <img src="/assets/banner-pattern-new.png" class="img1" alt="">
+            
+        </div>
+       <!-- <div class="top-pattern">
+            <img src="/assets/banner-top-part.svg" alt="">
+        </div>-->
+        <div class="container left_part"><div class="hero-banner-wrapper quiz-banner inner text-left h-100 p-2 "><h1 class="h1">TT Phishing Quiz</h1><h4 class="h4">Plus de 90 % des violations de données actuelles commencent par une attaque de phishing. Pouvez-vous reconnaître quand vous êtes ciblé par une tentative de phishing ?</h4><span class="quiz-score"></span><p>Les attaques par hameçonnage visent à inciter les utilisateurs peu méfiants à divulguer des informations personnelles ou financières, souvent en imitant le contenu d'entreprises réputées.
+
+            Avec l'IA, les attaques par hameçonnage sont déjà plus sophistiquées, personnalisées et fréquentes.<br>
+            Pensez-vous pouvoir démêler le vrai du faux ?</p>
+<button class="btn-custom orange quiz-trigger pquiz_tutorial_start" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#" target="">Commencer</button></div><div class="hero-banner-wrapper result-banner-wrapper" style="display: none;">
+               
+                    </div>
+                </div>
+           <div class="hero-image">
+                <img src="/assets/phishing-image-2.svg" class="img2" alt="">
+            </div></section>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Créer un nom et une adresse e-mail</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="col-md-11 mx-auto"> 
+                        <p class="mx-auto align-items-center">Pour rendre ce questionnaire plus réaliste, créez un nom d'utilisateur et une adresse e-mail (qui peuvent être fictifs).<br> Ne vous inquiétez pas, ces informations restent entre nous.</p>
+                      </div>
+                      <form [formGroup]="form">
+                        <div class="row g-3 align-items-center">
+                            <div class="col-md-11 mx-auto">  
+                        <input type="text" name="nom" class="form-control" formControlName="nom" placeholder="Nom*">
+                        <span *ngIf="form.controls['nom'].hasError('required')&& form.controls['nom'].touched"
+                    class="text-danger">
+                    le nom est obligatoire
+                  </span>
+                    </div></div><br>
+                    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-md-11 mx-auto">
+                        <input type="email" name="email" formControlName="email" class="form-control" placeholder="E-mail*">
+                        <span *ngIf="form.controls['email'].hasError('required')&& form.controls['email'].touched"
+                    class="text-danger">
+                    l'email est obligatoire
+                  </span>
+                    </div> </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                      <button type="button" class="btn btn-primary" [disabled]="form.invalid" (click)="onsubmit()">Commencer</button>
+                    </div>
+                  </div>
+                </div></div>
+              </div></div>
+   

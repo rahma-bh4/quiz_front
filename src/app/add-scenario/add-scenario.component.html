@@ -1,0 +1,170 @@
+<div class="container">
+    <div class="payment-container">
+        <div class="image-section">
+          <img src="/assets/Phishing_img.png" alt="Product Image" />
+        </div>
+        <div class="form-section">
+            <h2>Ajouter un Scénario</h2>
+<div class="container mt-4">
+    <form (ngSubmit)="onSubmit()" [formGroup]="scenarioForm">
+      <div class="mb-3">
+        <label for="titre" class="form-label">Titre</label>
+        <input
+          type="text"
+          id="titre"
+          class="form-control"
+          formControlName="titre"
+          placeholder="Entrez le titre"
+          required
+        />
+      </div>
+  
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          id="description"
+          class="form-control"
+          formControlName="description"
+          rows="3"
+          placeholder="Entrez la description"
+          required
+        ></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label for="type" class="form-label">Type</label>
+        <select
+          id="type"
+          class="form-select"
+          formControlName="type"
+          (change)="onTypeChange($event)"
+          required
+        >
+          <option value="" disabled selected>Choisir un type</option>
+          <option value="email">Email</option>
+          <option value="image">Image</option>
+        </select>
+      </div>
+  
+      <div *ngIf="scenarioForm.get('type')?.value === 'email'">
+        <div class="mb-3">
+          <label for="sender" class="form-label">Expéditeur</label>
+          <input
+            type="text"
+            id="sender"
+            class="form-control"
+            formControlName="sender"
+            placeholder="Nom de l'expéditeur"
+          />
+        </div>
+  
+        <div class="mb-3">
+          <label for="sender_mail" class="form-label">Email de l'expéditeur</label>
+          <input
+            type="email"
+            id="sender_mail"
+            class="form-control"
+            formControlName="sender_mail"
+            placeholder="Email de l'expéditeur"
+          />
+        </div>
+  
+        <div class="mb-3">
+          <label for="footer" class="form-label">Pied de page</label>
+          <textarea
+            id="footer"
+            class="form-control"
+            formControlName="footer"
+            rows="2"
+            placeholder="Entrez le pied de page"
+          ></textarea>
+        </div>
+  
+        <div class="mb-3">
+          <label for="button" class="form-label">Texte du bouton</label>
+          <input
+            type="text"
+            id="button"
+            class="form-control"
+            formControlName="button"
+            placeholder="Texte du bouton"
+          />
+        </div>
+  
+        <div class="mb-3">
+          <label for="url" class="form-label">URL</label>
+          <input
+            type="url"
+            id="url"
+            class="form-control"
+            formControlName="url"
+            placeholder="Entrez l'URL"
+          />
+        </div>
+  
+        <div class="mb-3">
+          <label for="objet" class="form-label">Objet</label>
+          <input
+            type="text"
+            id="objet"
+            class="form-control"
+            formControlName="objet"
+            placeholder="Entrez l'objet"
+          />
+        </div>
+  
+        <div class="mb-3">
+          <label for="mail_body" class="form-label">Contenu du mail</label>
+          <textarea
+            id="mail_body"
+            class="form-control"
+            formControlName="mail_body"
+            rows="3"
+            placeholder="Entrez le contenu du mail"
+          ></textarea>
+        </div>
+      </div>
+  
+      <div *ngIf="scenarioForm.get('type')?.value === 'image' || scenarioForm.get('type')?.value === 'email'">
+        <div class="mb-3">
+          <label for="image" class="form-label">Image</label>
+          <input
+            type="file"
+            id="image"
+            class="form-control"
+            (change)="onFileSelect($event)"
+          />
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="reponse" class="form-label">Réponse</label>
+        <select
+          id="reponse"
+          class="form-select"
+          formControlName="reponse"
+          required
+        >
+          <option value="" disabled selected>S'agit-il d'un phishing?</option>
+          <option [value]="true">Oui</option>
+          <option [value]="false">Non</option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label for="explication" class="form-label">Explication</label>
+        <textarea
+          id="explication"
+          class="form-control"
+          formControlName="explication"
+          rows="3"
+          placeholder="Entrez une explication"
+          required
+        ></textarea>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Ajouter le scénario</button>
+    </form>
+  </div>
+        </div>
+</div>

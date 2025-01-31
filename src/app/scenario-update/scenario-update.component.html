@@ -1,0 +1,178 @@
+<div class="container">
+    <div class="payment-container">
+        <div class="image-section">
+          <img src="/assets/Phishing_img.png" alt="Product Image" />
+        </div>
+        <div class="form-section">
+            <h2>Ajouter un Scénario</h2>
+            <div class="container mt-4">
+                <form (ngSubmit)="onSubmit()" #scenarioForm="ngForm">
+                  <!-- Champ: Titre -->
+                  <div class="mb-3">
+                    <label for="titre" class="form-label">Titre</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="titre"
+                      name="titre"
+                      [(ngModel)]="scenario.titre"
+                      required
+                    />
+                  </div>
+              
+                  <!-- Champ: Description -->
+                  <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea
+                      class="form-control"
+                      id="description"
+                      name="description"
+                      rows="3"
+                      [(ngModel)]="scenario.description"
+                      required
+                    ></textarea>
+                  </div>
+              
+                  <!-- Champ: Type -->
+                  <div class="mb-3">
+                    <label for="type" class="form-label">Type</label>
+                    <select
+                      class="form-select"
+                      id="type"
+                      name="type"
+                      [(ngModel)]="scenario.type"
+                      required
+                      (change)="onTypeChange()"
+                    >
+                      <option value="email">Email</option>
+                      <option value="image">Image</option>
+                    </select>
+                  </div>
+              
+                  <!-- Champs dynamiques pour le type "email" -->
+                  <div *ngIf="scenario.type === 'email'">
+                    <div class="mb-3">
+                      <label for="sender" class="form-label">Expéditeur</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="sender"
+                        name="sender"
+                        [(ngModel)]="scenario.sender"
+                      />
+                    </div>
+              
+                    <div class="mb-3">
+                      <label for="sender_mail" class="form-label">Email de l'expéditeur</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="sender_mail"
+                        name="sender_mail"
+                        [(ngModel)]="scenario.sender_mail"
+                      />
+                    </div>
+              
+                    <div class="mb-3">
+                      <label for="footer" class="form-label">Footer</label>
+                      <textarea
+                        class="form-control"
+                        id="footer"
+                        name="footer"
+                        rows="2"
+                        [(ngModel)]="scenario.footer"
+                      ></textarea>
+                    </div>
+              
+                    <div class="mb-3">
+                      <label for="button" class="form-label">Bouton</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="button"
+                        name="button"
+                        [(ngModel)]="scenario.button"
+                      />
+                    </div>
+              
+                    <div class="mb-3">
+                      <label for="url" class="form-label">URL</label>
+                      <input
+                        type="url"
+                        class="form-control"
+                        id="url"
+                        name="url"
+                        [(ngModel)]="scenario.url"
+                      />
+                    </div>
+              
+                    <div class="mb-3">
+                      <label for="objet" class="form-label">Objet</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="objet"
+                        name="objet"
+                        [(ngModel)]="scenario.objet"
+                      />
+                    </div>
+              
+                    <div class="mb-3">
+                      <label for="mail_body" class="form-label">Contenu du mail</label>
+                      <textarea
+                        class="form-control"
+                        id="mail_body"
+                        name="mail_body"
+                        rows="3"
+                        [(ngModel)]="scenario.mail_body"
+                      ></textarea>
+                    </div>
+                  </div>
+              
+                  <!-- Champs dynamiques pour le type "image" -->
+                  <div *ngIf="scenario.type === 'image' || scenario.type === 'email' ">
+                    <div class="mb-3">
+                      <label for="image" class="form-label">Image</label>
+                      <input
+                        type="file"
+                        class="form-control"
+                        id="image"
+                        name="image"
+                        (change)="onFileChange($event)"
+                      />
+                    </div>
+                  </div>
+              
+                  <!-- Champ: Réponse -->
+                  <div class="mb-3">
+                    <label for="reponse" class="form-label">Réponse</label>
+                    <select
+                      class="form-select"
+                      id="reponse"
+                      name="reponse"
+                      [(ngModel)]="scenario.reponse"
+                    >
+                      <option [value]="true">Oui</option>
+                      <option [value]="false">Non</option>
+                    </select>
+                  </div>
+              
+                  <!-- Champ: Explication -->
+                  <div class="mb-3">
+                    <label for="explication" class="form-label">Explication</label>
+                    <textarea
+                      class="form-control"
+                      id="explication"
+                      name="explication"
+                      rows="3"
+                      [(ngModel)]="scenario.explication"
+                    ></textarea>
+                  </div>
+              
+                  <!-- Bouton de soumission -->
+                  <button type="submit" class="btn btn-primary">Modifier</button>
+                </form>
+              </div>
+              
+</div>
+

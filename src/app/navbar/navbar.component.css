@@ -1,0 +1,119 @@
+.header-container {
+  position: fixed;
+  font-family: "Roboto","Noto Sans Display","Open Sans",sans-serif; /* Permet à la navbar d'être positionnée par rapport à ce conteneur */
+}
+.navbar-nav{
+  margin-right:30px;
+}
+
+
+
+.custom-navbar {
+  position: fixed; /* Positionne la navbar par rapport à son conteneur */
+  top: 0; /* La place en haut de l'image */
+  left: 0; /* Aligne à gauche */
+  height: 90px; /* Hauteur de la navbar */
+  width: 100%; 
+  /* S'assure que la navbar prend toute la largeur */
+  
+}
+nav{
+  z-index: 1000;
+  background-color: #fff;
+ 
+  position: relative;
+  padding:0px;
+}
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: rgb(117, 116, 116) !important;
+  font-size: 20px; 
+  font-weight: bold;
+  font-family: "Roboto","Noto Sans Display","Open Sans",sans-serif;
+  z-index: 1;
+}
+h3{
+  color:rgb(117, 116, 116);
+  font-family: "Roboto","Noto Sans Display","Open Sans",sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+}
+.navbar-brand img {
+  /*margin-right: 20px;*/
+  height: 90px;
+  width: 150px;
+  float: left;
+  
+  left: 0;
+  z-index: 1;
+  top:0;
+  margin-top: 0px;
+  
+}
+
+.custom-navbar .navbar-nav {
+  margin-left: auto; 
+}
+
+.custom-navbar .navbar-nav .nav-item {
+  margin-left: 50px; 
+}
+.app-title {
+  position: absolute; 
+  top: calc(80% + 400px); 
+  left: 30%; 
+  transform: translate(-50%, -50%); 
+  color: #D5D1C6; 
+  font-size: 90px; 
+  font-weight: bold;
+  font-family: 'League Spartan', sans-serif;
+  z-index: 100; 
+ 
+
+}
+.get-started-btn {
+  display: inline-block;
+  padding: 15px 30px; 
+  margin-top: 20px; 
+  font-size: 18px; 
+  font-weight: bold; 
+  left: 12%;
+  top: calc(80% + 560px);
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #fff; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  z-index: 101; 
+  position: absolute; 
+}
+.get-started-btn:hover {
+  background-color: rgba(255, 252, 252, 0.7); 
+  color: #38573F; 
+
+}
+.description {
+  position: absolute; 
+  top: calc(80% + 500px); 
+  left: 31%; 
+  transform: translate(-50%, -50%); 
+  color:#9EAD84; 
+  font-family:  sans-serif;
+  font-size: 15px;
+  z-index: 100; 
+  line-height: 1.5; 
+}
+.wrapper{
+
+display: grid;
+grid-template-columns: auto 1fr; /* Deux colonnes : une pour le logo, une pour le titre */
+align-items: center;
+position: absolute;
+
+}
+a{
+  color: rgb(117, 116, 116) !important;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Roboto","Noto Sans Display","Open Sans",sans-serif;
+}
