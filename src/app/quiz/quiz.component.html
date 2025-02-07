@@ -1,21 +1,23 @@
+
+<head><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script></head>
 <app-navbar></app-navbar>
 
 
-<div class="prompt-wrapper " *ngIf="scenario && !hide"  >
+<div class="prompt-wrapper " *ngIf="scenario && !hide">
     <h1 class="titre">
-        <span >{{scenario?.titre}}</span>
+        <span>{{scenario?.titre}}</span>
     </h1>
     <p class="">{{scenario?.description}}</p>
-   
+
 </div>
 <div class="prompt-wrapper " *ngIf="feedbackMessage">
     <h1 class="titre">
-        <span >{{feedbackMessage}}</span>
+        <span>{{feedbackMessage}}</span>
     </h1>
     <p class="">{{scenario.explication}}</p>
     <div class="actions button-container ">
-        <button
-            class="custom-button" (click)="loadNextScenario()">suivant</button><!---->
+        <button class="custom-button" (click)="loadNextScenario()">suivant</button><!---->
         <!----><!---->
     </div>
 </div>
@@ -30,40 +32,52 @@
                 <div class="circle red">D</div>
                 <div class="email-details">
                     <div class="sender-details">
-                        <span class="sender-name" >{{scenario.sender}}</span>
+                        <span class="sender-name">{{scenario.sender}}</span>
                         <span class="sender-email">&nbsp;&nbsp;{{scenario.sender_mail}}</span>
 
                     </div>
-                    <div class="to-me-wrapper">
-                        <span class="to me">à moi</span>
-                    </div>
-                    <div></div>
+                    
+                    <div class=" to-me-wrapper dropdown ">
+                        <button class=" dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          à moi
+                        </button>
+                        <ul class="dropdown-menu email-dropdown ">
+                          <li><span class="col-left">de&nbsp;:</span><span class="word-wrap " >&nbsp;{{scenario.sender}} &lt;{{scenario.sender_mail}}&gt;</span></li>
+                          <li><span class="col-left">à&nbsp;:</span><span class="word-wrap " >&nbsp;{{scenario.user_name}} &lt;{{scenario.user_email}}&gt;</span></li>
+                          <li><span class="col-left">date&nbsp;:</span><span class="word-wrap " ></span>&nbsp;{{ current_date | date:'d MMM. y, HH:mm:ss' }}</li>
+                          <li><span class="col-left">objet&nbsp;:</span><span class="word-wrap " >&nbsp;{{scenario.objet}}</span></li>
+                        </ul>
+                      </div>
                 </div>
-                <div class="time"></div>
+                <div class="time">{{ current_date | date:' HH:mm' }}</div>
             </div>
+           
         </div>
         <div class="email-container">
             <h2>{{scenario.objet}}</h2>
             <p>{{scenario.mail_body}}</p>
             <div style="display: flex; justify-content: center;">
-                <img [src]="'http://localhost:8000/'+scenario.image" alt="" *ngIf="scenario.image!=null" class="image"></div>
-            <div class="email-footer">
-                <a class="btn btn-primary" href="{{scenario.url}}"  (click)="myFunction($event)">{{scenario.button}}</a>
+                <img [src]="'http://localhost:8000/'+scenario.image" alt="" *ngIf="scenario.image!=null" class="image">
             </div>
-            <div class="email-footer"><p>{{scenario.footer}}</p></div>
-           
+            <div class="email-footer">
+                <a class="btn btn-primary" href="{{scenario.url}}" (click)="myFunction($event)">{{scenario.button}}</a>
+            </div>
+            <div class="email-footer">
+                <p>{{scenario.footer}}</p>
+            </div>
+
         </div>
 
-    </div></div>
-    <div style="display: flex; justify-content: center;" *ngIf="scenario && scenario.type === 'image'">
-    <img [src]="'http://localhost:8000/'+scenario.image" alt="" class="image2"></div><br><br>
-    <div class="actions button-container " *ngIf="scenario && !hide">
-        <button
-            class="custom-button" (click)="phishing_reponse()">phishing</button><!---->
-        <button
-            class="custom-button" (click)="legitime_reponse()">Légitime</button><!----><!---->
     </div>
- <div> 
- </div>
+</div>
+<div style="display: flex; justify-content: center;" *ngIf="scenario && scenario.type === 'image'">
+    <img [src]="'http://localhost:8000/'+scenario.image" alt="" class="image2">
+</div><br><br>
+<div class="actions button-container " *ngIf="scenario && !hide">
+    <button class="custom-button" (click)="phishing_reponse()">phishing</button><!---->
+    <button class="custom-button" (click)="legitime_reponse()">Légitime</button><!----><!---->
+</div>
+<div>
+</div>
 
 <app-footer></app-footer>

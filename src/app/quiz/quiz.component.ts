@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { QuizService } from '../services/quiz.service';
 import { ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { Dropdown } from 'bootstrap';
+import * as bootstrap from 'bootstrap';
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css'
 })
-export class QuizComponent implements OnInit{
+export class QuizComponent implements OnInit,AfterViewInit{
   scenario: any|null; // Scénario actuel
   userAnswer: boolean | null = null; // Réponse de l'utilisateur
   feedbackMessage: string | null = null;
@@ -16,7 +17,7 @@ export class QuizComponent implements OnInit{
   is_image:boolean|null=null;
   hide:boolean=false;
   first:boolean=true;
-  
+  current_date:any;
   quiz_id=Number(localStorage.getItem('quiz_id'));
   constructor(private quizService: QuizService,private cdr: ChangeDetectorRef,private router: Router) {}
 
@@ -34,7 +35,7 @@ export class QuizComponent implements OnInit{
   else{
     this.router.navigate(['/accueil']);
   }
- 
+ this.current_date=new Date();
 
     // Charger le premier scénario
   }
@@ -81,6 +82,7 @@ submitAnswer(answer: boolean): void {
       (response) => {
         this.feedbackMessage = response.message;
         this.hide=true; 
+        this.first=false;
         // Message de retour
        
       },
@@ -107,6 +109,7 @@ loadNextScenario(): void {
       this.is_email = false;
       this.is_image = false;
       console.log('Valeur et type de this.scenario:', this.scenario, typeof this.scenario);
+      this.current_date=new Date();
       if (
         this.scenario === null || 
         this.scenario === undefined || 
@@ -142,4 +145,11 @@ myFunction(event: Event): void {
   event.preventDefault(); // Empêche la redirection
   console.log('Lien cliqué sans redirection');
 }
+
+ngAfterViewInit() {
+  document.querySelectorAll('.dropdown-toggle').forEach(dropdownToggle => {
+    new bootstrap.Dropdown(dropdownToggle);
+  });
+}
+
 }

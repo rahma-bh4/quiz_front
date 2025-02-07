@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../services/admin.service';
-
+import {Chart} from 'chart.js';
 
 @Component({
   selector: 'app-dashboard',
